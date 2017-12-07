@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>The HTML5 Herald</title>
+    <title>NJIT IS601 Final Project</title>
     <meta name="description" content="The HTML5 Herald">
     <meta name="author" content="SitePoint">
 
@@ -26,14 +26,14 @@
 
     ?> </h1>
 
-<h1><a href="index.php?page=accounts&action=all">Show All Accounts</a></h1>
-<h1><a href="index.php?page=tasks&action=all">Show All Tasks</a></h1>
+<!-- <h1><a href="index.php?page=accounts&action=all">Show All Accounts</a></h1> -->
+<!-- <h1><a href="index.php?page=tasks&action=all">Show All Tasks</a></h1> -->
 
 <form action="index.php?page=accounts&action=login" method="POST">
 
     <div class="container">
         <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="email" required>
+        <input type="text" placeholder="Enter email" name="email" required>
 
         <label><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
@@ -43,7 +43,7 @@
 
 
 </form>
-<h1><a href="index.php?page=accounts&action=register">Register</a></h1>
+<h3>Click <a href="index.php?page=accounts&action=register">register</a> if you are a new user</h3>
 
 
 <script src="js/scripts.js"></script>
