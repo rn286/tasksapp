@@ -13,27 +13,56 @@
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
     <![endif]-->
-</head>
+
+<style>
+    body { 
+          background-color: #E6E6FA
+    }
+	    
+	h1 {
+		font-family: "Courier New", Courier, monospace;
+    }
+	
+	h2 {
+		font-family: "Courier New", Courier, monospace;
+	}	
+	
+	h3 {
+		font-family: "Courier New", Courier, monospace;
+	}
+	
+</style>	
+	
+	
+	</head>
 
 <body>
 
 
-<h1>
+<table>
+<tr class="box">
+    <td>
+		<img src="pages/todo-list.png" height="100" width="100"/>
+	</td>
+    <td>
+		<h1>
     <?php
 
-    //this how to print some data;
+    //coming from homepagecontroller;
     echo $data['site_name'];
 
     ?> </h1>
+	</td>
+</tr>
+</table>
 
-<!-- <h1><a href="index.php?page=accounts&action=all">Show All Accounts</a></h1> -->
-<!-- <h1><a href="index.php?page=tasks&action=all">Show All Tasks</a></h1> -->
+<br>
 
 <form action="index.php?page=accounts&action=login" method="POST">
 
     <div class="container">
         <label><b>Username</b></label>
-        <input type="text" placeholder="Enter email" name="email" required>
+        <input type="text" placeholder="Enter Email" name="email" required>
 
         <label><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
@@ -43,6 +72,7 @@
 
 
 </form>
+<br>
 <h3>Click <a href="index.php?page=accounts&action=register">register</a> if you are a new user</h3>
 
 

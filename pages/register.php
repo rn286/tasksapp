@@ -13,10 +13,31 @@
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
     <![endif]-->
-</head>
+
+	<style>
+    body { 
+          background-color: #E6E6FA
+    }
+	    
+	h1 {
+		font-family: "Courier New", Courier, monospace;
+    }
+	
+	h2 {
+		font-family: "Courier New", Courier, monospace;
+	}	
+	
+	h3 {
+		font-family: "Courier New", Courier, monospace;
+	}
+	
+</style>	
+	
+	</head>
 
 <body>
 
+<h1>Account Registration</h1>
 
 <form action="index.php?page=accounts&action=register" method="post">
     First name: <input type="text" name="fname"><br>
@@ -26,7 +47,7 @@
     Birthday: <input type="text" name="birthday"><br>
     Gender: <input type="text" name="gender"><br>
     Password: <input type="password" name="password"><br>
-    <input type="submit" value="Submit form">
+    <input type="submit" value="Register">
 </form>
 
 
