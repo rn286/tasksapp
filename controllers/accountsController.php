@@ -66,13 +66,13 @@ class accountsController extends http\controller
             //you may want to send the person to a
             // login page or create a session and log them in
             // and then send them to the task list page and a link to create tasks
-            header("Location: index.php?page=accounts&action=all");
-
+            //header("Location: index.php?page=accounts&action=all");
+			header("Location: index.php");
         } else {
             //You can make a template for errors called error.php
             // and load the template here with the error you want to show.
            // echo 'already registered';
-            $error = 'already registered';
+            $error = 'This email is already registered';
             self::getTemplate('error', $error);
 
         }
@@ -97,16 +97,17 @@ class accountsController extends http\controller
         $user->birthday = $_POST['birthday'];
         $user->gender = $_POST['gender'];
         $user->save();
-        header("Location: index.php?page=accounts&action=all");
-
+        //header("Location: index.php?page=accounts&action=all");
+		header("Location: index.php");
     }
 
     public static function delete() {
 
         $record = accounts::findOne($_REQUEST['id']);
         $record->delete();
-        header("Location: index.php?page=accounts&action=all");
-    }
+        //header("Location: index.php?page=accounts&action=all");
+		header("Location: index.php");
+	}
 
     //this is to login, here is where you find the account and allow login or deny.
     public static function login()
@@ -131,9 +132,10 @@ class accountsController extends http\controller
 
                 session_start();
                 $_SESSION["userID"] = $user->id;
+				$_SESSION["userEmail"] = $user->email;
                 //forward the user to the show all todos page
-                echo 'you are here';
-				print_r($_SESSION);
+                print_r($_SESSION);
+				header('Location: index.php?page=tasks&action=all&id='.$user->id);
             } else {
                 echo 'password does not match';
             }
