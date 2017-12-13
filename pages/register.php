@@ -1,56 +1,56 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
-
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
-
-	<style>
-    body { 
-          background-color: #E6E6FA
-    }
-	    
-	h1 {
-		font-family: "Courier New", Courier, monospace;
-    }
-	
-	h2 {
-		font-family: "Courier New", Courier, monospace;
-	}	
-	
-	h3 {
-		font-family: "Courier New", Courier, monospace;
-	}
-	
-</style>	
-	
-	</head>
-
+  <title>Account Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 <body>
 
-<h1>Account Registration</h1>
+<div class="container">
+  <h2>Account Registration</h2>
+  <form action="index.php?page=accounts&action=register" method="post">
+   <div class="form-group">
+      <label for="fname">First Name:</label>
+      <input type="text" class="form-control" id="fname" placeholder="First Name" name="fname">
+    </div>    
+	   <div class="form-group">
+      <label for="lname">Last Name:</label>
+      <input type="text" class="form-control" id="lname" placeholder="Last Name" name="lname">
+    </div>
+	
+	   <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+	
+	   <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone">
+    </div>
+	   
+	   <div class="form-group">
+      <label for="birthday">Birthday:</label>
+      <input type="date" class="form-control" id="birthday" placeholder="Enter birthday" name="birthday">
+    </div>
+	
+	<div class="form-group">
+      <label for="gender">Gender:</label>
+      <input type="text" class="form-control" id="gender" placeholder="Enter gender" name="gender">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
 
-<form action="index.php?page=accounts&action=register" method="post">
-    First name: <input type="text" name="fname"><br>
-    Last name: <input type="text" name="lname"><br>
-    Email: <input type="text" name="email"><br>
-    Phone: <input type="text" name="phone"><br>
-    Birthday: <input type="text" name="birthday"><br>
-    Gender: <input type="text" name="gender"><br>
-    Password: <input type="password" name="password"><br>
-    <input type="submit" value="Register">
-</form>
-
-
-<script src="js/scripts.js"></script>
 </body>
 </html>

@@ -1,19 +1,13 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-
-    <title>NJIT IS601 Final Project</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
-
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
-
+  <title>NJIT IS601 Final Project</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 <style>
     body { 
           background-color: #E6E6FA
@@ -32,13 +26,8 @@
 	}
 	
 </style>	
-	
-	
-	</head>
 
 <body>
-
-
 <table>
 <tr class="box">
     <td>
@@ -55,27 +44,29 @@
 	</td>
 </tr>
 </table>
-
-<br>
-
-<form action="index.php?page=accounts&action=login" method="POST">
-
-    <div class="container">
-        <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
-
-        <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
-
-        <button type="submit">Login</button>
+<div class="container">
+  
+  <form class="form-inline" action="index.php?page=accounts&action=login" method="POST">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
     </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
 
-
-</form>
 <br>
 <h3>Click <a href="index.php?page=accounts&action=register">register</a> if you are a new user</h3>
 
-
-<script src="js/scripts.js"></script>
 </body>
+
 </html>
+
+
