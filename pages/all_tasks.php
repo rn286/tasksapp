@@ -44,6 +44,9 @@
                 <li>
                     <a href="index.php?page=accounts&action=logout">Log Out</a>
                 </li>
+				<li>
+                    <a href="index.php?page=accounts&action=all">Admin Tools</a>
+                </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -57,6 +60,27 @@
                 <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
             </div>
 			<br>
+<style>
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+</style>
+			
 <?php
 
 if ($data == false) {

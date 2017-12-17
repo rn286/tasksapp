@@ -19,7 +19,7 @@
 
 <h1><?php echo $data ?></h1>
 <br> </br>
-echo( "<button onclick= \"location.href='index.php'\">Back to Home Page</button>")
+<button onclick= \"location.href='index.php'\">Back to Home Page</button>
 
 <script src="js/scripts.js"></script>
 </body>

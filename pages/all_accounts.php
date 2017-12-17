@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>The HTML5 Herald</title>
+    <title>Tasks tracker Web Application</title>
     <meta name="description" content="The HTML5 Herald">
     <meta name="author" content="SitePoint">
 
@@ -16,9 +16,27 @@
 </head>
 
 <body>
-<h1>All Accounts</h1>
+<h1>Admin Dashboard</h1>
+<style>
 
-<h1> HI</h1>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+</style>
 
 <?php
 //this is how you print something

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>NJIT IS601 Final Project</title>
+    <title>Tasks tracker Web Application</title>
 
     <!-- Bootstrap core CSS -->
     <link href="pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +28,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-light static-top">
       <div class="container">
-        <a class="navbar-brand" >Version 1.0</a>
+        <a class="navbar-brand" >Version 2.0</a>
         <a class="btn btn-primary" href="index.php?page=accounts&action=register">New Account Registration</a>
       </div>
     </nav>

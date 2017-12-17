@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>The HTML5 Herald</title>
+    <title>Tasks tracker Web Application</title>
     <meta name="description" content="The HTML5 Herald">
     <meta name="author" content="SitePoint">
 
@@ -18,6 +18,9 @@
 <body>
 
 <h1>Page Not Found 404</h1>
+<?php
+echo( "<button onclick= \"location.href='index.php'\">Back to Home Page</button>");
+?>
 
 
 <script src="js/scripts.js"></script>
