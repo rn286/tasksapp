@@ -39,17 +39,13 @@
 	
 	<div class="form-group">
     <label for="gender">Select Gender:</label>
-    <select class="form-control" id="gender">
-		<option> - </option>
-		<option>Male</option>
-        <option>Female</option>
-      </select>
+    <input type="text" class="form-control" id="gender" placeholder="Enter gender" name="gender" required>
 	
 	</div>
     
 	<div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required>
+      <label for="password">Password (6 character minimum)</label>
+      <input type="password" pattern=".{6,15}" class="form-control" id="password" placeholder="Enter password" name="password" required>
     </div>
     <div class="checkbox">
       <label><input type="checkbox" name="remember"> Remember me</label>

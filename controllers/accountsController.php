@@ -19,8 +19,6 @@ class accountsController extends http\controller
         self::getTemplate('show_account', $record);
     }
 
-    //to call the show function the url is index.php?page=accounts&action=all
-
     public static function all()
     {
 
@@ -52,9 +50,11 @@ class accountsController extends http\controller
             $user->gender = $_POST['gender'];
             $user->password = $user->setPassword($_POST['password']);
             $user->save();
-            //newly registered user will go back to the logon page to start their session
-			header("Location: index.php");
-        
+     //newly registered user will be notified if registation was successful and will be asked to click Home page to Sign in
+			echo '<h3>Thank you for registering. Click the Home Page button to Sign In.</h3>';
+			echo( "<button onclick= \"location.href='index.php'\">Home Page</button>");
+			
+			
 		} else {
             $error = 'A user with this email address has already registered';
             self::getTemplate('error', $error);
@@ -112,7 +112,7 @@ class accountsController extends http\controller
                 //forward the user to the show all todos page
 				header('Location: index.php?page=tasks&action=all&id='.$user->id);
             } else {
-                echo 'Password does not match. Click the here and try again >>>>>';
+                echo 'Password does not match. Click the Home Page button and try again >>>>>';
 				echo( "<button onclick= \"location.href='index.php'\">Back to Home Page</button>");
             }
 
