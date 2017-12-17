@@ -24,7 +24,7 @@ class htmlTable
             $tableGen .= '<tr>';
             foreach ($record as $key => $value) {
                 if ($key == 'id') {
-                    $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $value . '">View/Edit</a></td>';
+                    $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $value . '">Edit</a></td>';
                 } else {
                     $tableGen .= '<td>' . $value . '</td>';
                 }

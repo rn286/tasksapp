@@ -49,7 +49,7 @@
 	</div>
     
 	<div class="form-group">
-      <label for="password">Password (6 character minimum)</label>
+      <label for="password">Password (6 character minimum):</label>
       <input type="password" pattern=".{6,15}" class="form-control" id="password" placeholder="Enter password" name="password" required>
     </div>
     <div class="checkbox">

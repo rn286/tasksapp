@@ -1,41 +1,119 @@
 <!doctype html>
-
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
-
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-
-    <!--[if lt IE 9]>
+<link rel="stylesheet" href="css/styles.css?v=1.0">
+    
+	<!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
     <![endif]-->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+    <meta name="author" content="">
+	
+    <title>Tasks tracker Web Application</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="pages/css/simple-sidebar.css" rel="stylesheet">
+
 </head>
 
 <body>
 
-<?php
-//this is how you print something  $data contains the record that was selected on the table.
+    <div id="wrapper">
 
-?>
-<form action="index.php?page=tasks&action=save" method="post">
-    Owner Email: <input type="text" name="owneremail" value="<?php echo $data->owneremail; ?>"<br>
-    Due Date: <input type="text" name="duedate" value="<?php echo $data->duedate; ?>"<br>
-    Message: <input type="text" name="message" value="<?php echo $data->message; ?>"<br>
-    Is Done?: <input type="text" name="isdone" value="<?php echo $data->isdone; ?>"<br>
-    <input type="hidden" name="id" value="<?php echo $data->id; ?>">
-    <input type="submit" value="Save" value="">
-</form>
-<form action="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?> " method="post" id="form2">
-    <button type="submit" form="form2" value="delete">Delete</button>
-</form>
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a>
+                        Main Menu
+                    </a>
+                </li>
+                <li>
+                    <a href="index.php?page=tasks&action=all">View Tasks</a>
+                </li>
+                <li>
+                    <a href="index.php?page=accounts&action=edit">Edit Account</a>
+                </li>
+                <li>
+                    <a href="index.php?page=accounts&action=logout">Log Out</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
 
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>Tasks Tracker Dashboard</h1>
+                <p></p>
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+            </div>
+			<br>
+			<div class="container">
+  <h1>Tasks Tracker Web-based Application</h1>
+  <h2>Edit or Delete a Task</h2>
+  <form action="index.php?page=tasks&action=save" method="post">
+   		
+	<div class="form-group">
+      <label for="email">Owner Email:</label>
+      <input type="email" class="form-control" id="owneremail" placeholder="Enter email" name="owneremail" readonly value="<?php echo $data->owneremail; ?>">
+    </div>
+	
+	
+	  <div class="form-group">
+      <label for="duedate">Due Date:</label>
+      <input type="text" class="form-control" id="duedate" placeholder="duedate" name="duedate" value="<?php echo $data->duedate; ?>">
+    </div>
+	   
+	  <div class="form-group">
+      <label for="message">Message:</label>
+      <input type="text" class="form-control" id="message" placeholder="Message" name="message"value="<?php echo $data->message; ?>">
+    </div>
+	
+	<div class="form-group">
+    <label for="isdone">Is this task completed? (0=No, 1=Yes):</label>
+	  <input type="number" min="0" max="1" class="form-control" id="isdone" placeholder="Is done" name="isdone" value="<?php echo $data->isdone; ?>">
+        
+	
+	<input type="hidden" name="id" value="">
+	<button type="submit" class="btn btn-default">Submit</button>
+	<button type="reset" class="btn btn-default" value="Reset">Reset</button>
+  </form>
+</div>
+        </div>
+     <!-- /#page-content-wrapper -->
 
+	 
+    </div>
+	
 
+    <!-- /#wrapper -->
 
-<script src="js/scripts.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="pages/vendor/jquery/jquery.min.js"></script>
+    <script src="pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+<script src="js/scripts.js"></script>	
 </body>
+
 </html>
+        
+</form>
+
+
+
