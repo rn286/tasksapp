@@ -39,7 +39,11 @@
 	
 	<div class="form-group">
     <label for="gender">Select Gender:</label>
-    <input type="text" class="form-control" id="gender" placeholder="Enter gender" name="gender" required>
+	  <select class="form-control" name="gender">
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+	</label>
 	
 	</div>
     
