@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Account Registration</title>
+  <title>New Account Registration for Tasks Tracker</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,7 +11,7 @@
 <body>
 
 <div class="container">
-  <h2>Account Registration</h2>
+  <h2>New Account Registration</h2>
   <form action="index.php?page=accounts&action=register" method="post">
    <div class="form-group">
       <label for="fname">First Name:</label>
@@ -29,7 +29,7 @@
 	
 	   <div class="form-group">
       <label for="phone">Phone:</label>
-      <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone" required>
+      <input type="tel" class="form-control" id="phone" placeholder="Enter phone" name="phone" required>
     </div>
 	   
 	   <div class="form-group">
@@ -38,10 +38,12 @@
     </div>
 	
 	<div class="form-group">
-      <label for="gender">Gender:</label>
-      <input type="text" class="form-control" id="gender" placeholder="Enter gender" name="gender" required>
-    </div>
-    <div class="form-group">
+    <label for="gender">Gender:</label>
+    <input type="text" class="form-control" id="gender" placeholder="Enter gender" name="gender" required>
+	 
+	</div>
+    
+	<div class="form-group">
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" required>
     </div>

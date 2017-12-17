@@ -17,10 +17,16 @@
 
 <body>
 
-<h1><?php echo $data ?></h1>
-<br> </br>
-echo( "<button onclick= \"location.href='index.php'\">Back to Home Page</button>")
+<form action="index.php?page=tasks&action=save" method="post">
+    Owner Email: <input type="text" name="owneremail" readonly value="<?php echo $data; ?>"><br>
+    Due Date: <input type="date" name="duedate"> <br>
+    Message: <input type="text" name="message"> <br>
+    Is Done?: <input type="text" name="isdone"> <br>
+    <input type="hidden" name="id" value="">
+    <input type="submit" value="Submit Form" value="">
+</form>
+
 
 <script src="js/scripts.js"></script>
-</body>
-</html>
+
+

@@ -27,7 +27,7 @@
 //This isn't working yet. Print fails when array is empty
 
 if ($data == false) {
-	echo 'You do not have any tasks assigned to you.';
+	echo 'You do not have any tasks created under your name.';
 } else {
     print utility\htmlTable::genarateTableFromMultiArray($data);
 }

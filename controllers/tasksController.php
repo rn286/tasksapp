@@ -74,8 +74,11 @@ public static function newTodoform()
             $task->ownerid = $_SESSION['userID'];
             $task->message = $_REQUEST['message'];
             $task->owneremail = $_REQUEST['owneremail'];
-            $date = new DateTime('now');
-            $task->createddate = $date->format('Y-m-d H:i:s');
+			$dtz = new DateTimeZone("America/New_York"); //My timezone
+			$date = new DateTime(date("Y-m-d"), $dtz);
+			$task->createddate = $date->format('Y-m-d');
+           // $task->createddate = $date->format('Y-m-d H:i:s');
+		    $task->duedate = $_REQUEST['duedate'];
             $task->isdone = $_REQUEST['isdone'];
             $task->save();
         } else {
