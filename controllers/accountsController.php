@@ -37,19 +37,19 @@ class accountsController extends http\controller
     public static function store()
 
     {
-        $user = accounts::findUserbyEmail($_REQUEST['email']);
+        $record = accounts::findUserbyEmail($_REQUEST['email']);
 
 
-        if ($user == FALSE) {
-            $user = new account();
-            $user->email = $_POST['email'];
-            $user->fname = $_POST['fname'];
-            $user->lname = $_POST['lname'];
-            $user->phone = $_POST['phone'];
-            $user->birthday = $_POST['birthday'];
-            $user->gender = $_POST['gender'];
-            $user->password = $user->setPassword($_POST['password']);
-            $user->save();
+        if ($record == FALSE) {
+            $record = new account();
+            $record->email = $_POST['email'];
+            $record->fname = $_POST['fname'];
+            $record->lname = $_POST['lname'];
+            $record->phone = $_POST['phone'];
+            $record->birthday = $_POST['birthday'];
+            $record->gender = $_POST['gender'];
+            $record->password = $record->setPassword($_POST['password']);
+            $record->save();
      //newly registered user will be notified if registation was successful and will be asked to click Home page to Sign in
 			echo '<h3>Thank you for registering. Click the Home Page button to Sign In.</h3>';
 			echo( "<button onclick= \"location.href='index.php'\">Home Page</button>");
@@ -74,15 +74,15 @@ class accountsController extends http\controller
 //this is used to save the update form data
     public static function save() {
         session_start();
-        $user = accounts::findOne($_SESSION['userID']);
+        $record = accounts::findOne($_SESSION['userID']);
 
-        $user->email = $_POST['email'];
-        $user->fname = $_POST['fname'];
-        $user->lname = $_POST['lname'];
-        $user->phone = $_POST['phone'];
-        $user->birthday = $_POST['birthday'];
-        $user->gender = $_POST['gender'];
-        $user->save();
+        $record->email = $_POST['email'];
+        $record->fname = $_POST['fname'];
+        $record->lname = $_POST['lname'];
+        $record->phone = $_POST['phone'];
+        $record->birthday = $_POST['birthday'];
+        $record->gender = $_POST['gender'];
+        $record->save();
         header("Location: index.php?page=tasks&action=all");
 
     }
@@ -97,20 +97,20 @@ class accountsController extends http\controller
     //this is to login, here is where you find the account and allow login or deny.
     public static function login()
     {
-        $user = accounts::findUserbyEmail($_REQUEST['email']);
+        $record = accounts::findUserbyEmail($_REQUEST['email']);
 
 
-        if ($user == FALSE) {
+        if ($record == FALSE) {
             echo 'Sorry, this user does not exist. Please try again or register.';
 			echo( "<button onclick= \"location.href='index.php'\">Back to Home Page</button>");
         } else {
 									
-			if($user->checkPassword($_POST['password']) == TRUE) {
+			if($record->checkPassword($_POST['password']) == TRUE) {
                 session_start();
-                $_SESSION["userID"] = $user->id;
-				$_SESSION["userEmail"] = $user->email;
+                $_SESSION["userID"] = $record->id;
+				$_SESSION["userEmail"] = $record->email;
                 //forward the user to the show all todos page
-				header('Location: index.php?page=tasks&action=all&id='.$user->id);
+				header('Location: index.php?page=tasks&action=all&id='.$record->id);
             } else {
                 echo 'Password does not match. Click the Home Page button and try again >>>>>';
 				echo( "<button onclick= \"location.href='index.php'\">Back to Home Page</button>");
