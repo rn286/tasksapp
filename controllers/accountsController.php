@@ -67,12 +67,12 @@ class accountsController extends http\controller
             // login page or create a session and log them in
             // and then send them to the task list page and a link to create tasks
             //header("Location: index.php?page=accounts&action=all");
-			header("Location: index.php");
-        } else {
+				header("Location: index.php?page=tasks&action=all");
+        
+		} else {
             //You can make a template for errors called error.php
             // and load the template here with the error you want to show.
-           // echo 'already registered';
-            $error = 'This email is already registered';
+            $error = 'already registered';
             self::getTemplate('error', $error);
 
         }
@@ -81,14 +81,16 @@ class accountsController extends http\controller
 
     public static function edit()
     {
-        $record = accounts::findOne($_REQUEST['id']);
+        session_start();
+        $record = accounts::findOne($_SESSION['userID']);
 
         self::getTemplate('edit_account', $record);
 
     }
 //this is used to save the update form data
     public static function save() {
-        $user = accounts::findOne($_REQUEST['id']);
+        session_start();
+        $user = accounts::findOne($_SESSION['userID']);
 
         $user->email = $_POST['email'];
         $user->fname = $_POST['fname'];
@@ -97,17 +99,16 @@ class accountsController extends http\controller
         $user->birthday = $_POST['birthday'];
         $user->gender = $_POST['gender'];
         $user->save();
-        //header("Location: index.php?page=accounts&action=all");
-		header("Location: index.php");
+        header("Location: index.php?page=tasks&action=all");
+
     }
 
     public static function delete() {
 
         $record = accounts::findOne($_REQUEST['id']);
         $record->delete();
-        //header("Location: index.php?page=accounts&action=all");
-		header("Location: index.php");
-	}
+        header("Location: index.php?page=accounts&action=all");
+    }
 
     //this is to login, here is where you find the account and allow login or deny.
     public static function login()
@@ -123,28 +124,29 @@ class accountsController extends http\controller
 
 
         if ($user == FALSE) {
-            echo 'user not found';
+            echo 'Sorry, this user does not exist. Please try again or register.';
+			echo( "<button onclick= \"location.href='index.php'\">Back to Home Page</button>");
         } else {
-
-            if($user->checkPassword($_POST['password']) == TRUE) {
-
-                echo 'login';
-
+									
+			if($user->checkPassword($_POST['password']) == TRUE) {
                 session_start();
                 $_SESSION["userID"] = $user->id;
 				$_SESSION["userEmail"] = $user->email;
                 //forward the user to the show all todos page
-                print_r($_SESSION);
 				header('Location: index.php?page=tasks&action=all&id='.$user->id);
             } else {
-                echo 'password does not match';
+                echo 'Password does not match. Click the here and try again >>>>>';
+				echo( "<button onclick= \"location.href='index.php'\">Back to Home Page</button>");
             }
 
         }
+    }
 
-
-
-
+    public static function logout()
+    {
+        session_start();
+        session_destroy();
+        header("Location: index.php?page=homepage");
     }
 
 }

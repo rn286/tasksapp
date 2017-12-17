@@ -8,9 +8,9 @@ class todos extends database\collection
     //Don't forget to return the record set see findAll in the collection class
     public static  function findTasksbyID($userid) {
 
-
         $tableName = get_called_class();
-        $sql = 'SELECT * FROM ' . $tableName . ' WHERE id = ?';
+
+        $sql = 'SELECT * FROM ' . $tableName . ' WHERE ownerid = ' . $userid;
 
 
         //grab the only record for find one and return as an object

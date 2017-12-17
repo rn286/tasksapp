@@ -16,19 +16,20 @@
 </head>
 
 <body>
-<h1>All Tasks (for testing)</h1>
-<a href="index.php?page=tasks&action=create">Create Task</a>
-<h1> HI</h1>
+<h1>All Tasks</h1>
+<p><a href="index.php?page=tasks&action=create">Create Task</a></p>
+<p><a href="index.php?page=accounts&action=edit">Edit Account</a></p>
+<p><a href="index.php?page=accounts&action=logout">Log Out</a></p>
+
 <?php
 //this is how you print something
 
-//vardump($data);
 //This isn't working yet. Print fails when array is empty
-if ($data = false) {
-	echo 'You do not have any tasks assigned to you';
-	{then
-		print utility\htmlTable::genarateTableFromMultiArray($data);
-	}
+
+if ($data == false) {
+	echo 'You do not have any tasks assigned to you.';
+} else {
+    print utility\htmlTable::genarateTableFromMultiArray($data);
 }
 
 

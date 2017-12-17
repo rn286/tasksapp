@@ -9,11 +9,12 @@ abstract class model
     public function save()
     {
 
-        if($this->validate() == FALSE) {
-            echo 'failed validation';
-            exit;
-        }
+        // if($this->validate() == FALSE) {
+        //     echo 'failed validation';
+        //     exit;
+        // }
 
+        $INSERT = false;
 
         if ($this->id != '') {
             $sql = $this->update();
@@ -31,8 +32,10 @@ abstract class model
 
         }
 
-        foreach (array_flip($array) as $key => $value) {
-            $statement->bindParam(":$value", $this->$value);
+        foreach ($array as $key => $value) {
+            if (strlen($value)){
+                $statement->bindParam(":$value", $this->$value);
+            }
         }
         $statement->execute();
         if ($INSERT == TRUE) {
@@ -49,15 +52,22 @@ abstract class model
 
     private function insert()
     {
-
         $modelName = static::$modelName;
         $tableName = $modelName::getTablename();
         $array = get_object_vars($this);
         unset($array['id']);
-        $columnString = implode(',', array_flip($array));
-        $valueString = ':' . implode(',:', array_flip($array));
+        $comma = " ";
+        $columnString = '';
+        $valueString = '';
+        foreach ($array as $key => $value) {
+            $columnString .= $key . ',';
+            $valueString .= '"'.$value.'",';
+        }
+        $columnString = rtrim($columnString,',');
+        $valueString = rtrim($valueString,',');
         $sql = 'INSERT INTO ' . $tableName . ' (' . $columnString . ') VALUES (' . $valueString . ')';
         return $sql;
+
     }
 
     public function validate() {

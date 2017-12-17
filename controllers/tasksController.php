@@ -15,21 +15,20 @@ class tasksController extends http\controller
     public static function show()
     {
         $todo = todos::findOne($_REQUEST['id']);
-        self::getTemplate('show_task', $record);
+        self::getTemplate('show_task', $todo);
     }
 public static function newTodoform()
 {
-	self::getTemplate( template,'show_task');
+	self::getTemplate('create_task');
 }
     //to call the show function the url is index.php?page=task&action=list_task
 
     public static function all()
     {
-        $records = todos::findAll();
         session_start();
-
+        $records = todos::findAll();
         $userID = $_SESSION['userID'];
-
+        
         $records = todos::findTasksbyID($userID);
 
         self::getTemplate('all_tasks', $records);
@@ -41,21 +40,14 @@ public static function newTodoform()
 //this is the function to create  record form
     public static function create()
     {
-        $todo = new todo();
-		
-		$todo->ownerid = $_SESSION['userID'];
-		$todo->createdate = now();
-		$todo->isdone = $_POST['isdone'];
-		$todo->message = $_POST['message'];
-		$todo->owneremail = $_POST['owneremail'];
-		$todo->duedate = $_POST['duedate'];
-		$todo->save();
+        session_start();
+        $email = $_SESSION['userEmail'];
+        self::getTemplate('create_task', $email);
     }
 
     //this is the function to view edit record form
     public static function edit()
     {
-        $record = todos::findOne($_REQUEST['id']);
 
         self::getTemplate('edit_task', $record);
 
@@ -64,8 +56,6 @@ public static function newTodoform()
     //this would be for the post for sending the task edit form
     public static function store()
     {
-
-
         $record = todos::findOne($_REQUEST['id']);
         $record->body = $_REQUEST['body'];
         $record->save();
@@ -75,14 +65,28 @@ public static function newTodoform()
 
 	public static function save()
     {
-        
-		$task = todos::findOne($_REQUEST['id']);
-		$task->message = $_POST['message'];
-		$task->owneremail = $_POST['owneremail'];
-		$task->isdone = $_POST['owneremail'];
-		$task->save();
-		
-		print_r($task);
+        session_start();
+        $task = todos::findOne($_REQUEST['id']);
+
+
+        if ($task == FALSE) {
+            $task = new todo();
+            $task->ownerid = $_SESSION['userID'];
+            $task->message = $_REQUEST['message'];
+            $task->owneremail = $_REQUEST['owneremail'];
+            $date = new DateTime('now');
+            $task->createddate = $date->format('Y-m-d H:i:s');
+            $task->isdone = $_REQUEST['isdone'];
+            $task->save();
+        } else {
+            $task->ownerid = $_SESSION['userID'];
+            $task->message = $_REQUEST['message'];
+            $task->owneremail = $_REQUEST['owneremail'];
+            $task->isdone = $_REQUEST['isdone'];
+            $task->save();
+        }
+
+        header('Location: index.php?page=tasks&action=all');
     }
 	
 	
@@ -92,7 +96,7 @@ public static function newTodoform()
     {
         $record = todos::findOne($_REQUEST['id']);
         $record->delete();
-        print_r($_POST);
+        header('Location: index.php?page=tasks&action=all');
 
     }
 

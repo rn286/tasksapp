@@ -98,6 +98,14 @@ class routes
         //YOU WILL NEED TO ADD MORE ROUTES
 
         $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'logout';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'logout';
+        $routes[] = $route;
+
+        $route = new route();
         $route->http_method = 'POST';
         $route->action = 'delete';
         $route->page = 'tasks';
@@ -110,7 +118,23 @@ class routes
         $route->action = 'edit';
         $route->page = 'tasks';
         $route->controller = 'tasksController';
-        $route->method = 'store';
+        $route->method = 'edit';
+        $routes[] = $route;
+
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'save';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'save';
+        $routes[] = $route;
+
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'save';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'save';
         $routes[] = $route;
 
         $route = new route();
@@ -129,13 +153,6 @@ class routes
         $route->method = 'edit';
         $routes[] = $route;
 
-        $route = new route();
-        $route->http_method = 'POST';
-        $route->action = 'save';
-        $route->page = 'accounts';
-        $route->controller = 'accountsController';
-        $route->method = 'save';
-        $routes[] = $route;
         //this is the route for the reg form
         $route = new route();
         $route->http_method = 'GET';
@@ -152,21 +169,13 @@ class routes
         $route->controller = 'accountsController';
         $route->method = 'store';
         $routes[] = $route;
-
-		$route = new route();
-        $route->http_method = 'POST';
-        $route->action = 'create';
-        $route->page = 'tasks';
-        $route->controller = 'tasksController';
-        $route->method = 'create';
-        $routes[] = $route;
 		
 		$route = new route();
         $route->http_method = 'GET';
         $route->action = 'create';
         $route->page = 'tasks';
         $route->controller = 'tasksController';
-        $route->method = 'newTodoform';
+        $route->method = 'create';
         $routes[] = $route;
 
         return $routes;
