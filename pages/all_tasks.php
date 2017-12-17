@@ -19,7 +19,7 @@
     <link href="pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="pages/css/simple-sidebar.css" rel="stylesheet">
+    <link href="pages/css/simple-sidebar.css" rel="stylesheet">	
 
 </head>
 
@@ -51,7 +51,7 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <h1>Tasks Tracker Dashboard</h1>
+			    <h1>Tasks Tracker Dashboard</h1>
                 <p>Within this dashboard you can view, edit or delete your tasks</p>
                 <p></p>
                 <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>

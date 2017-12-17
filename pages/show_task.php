@@ -90,9 +90,7 @@
     <button type="submit" class="btn btn-danger" form="form2" value="delete">Delete</button>
 	</form>
 	 </div>
-	
-	
-	
+		
   </form>
 </div>
         </div>
