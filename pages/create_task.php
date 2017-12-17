@@ -85,8 +85,8 @@
 	</label>
 	
 	<input type="hidden" name="id" value="">
-	<button type="submit" class="btn btn-default">Submit</button>
-	<button type="reset" class="btn btn-default" value="Reset">Reset</button>
+	<button type="submit" class="btn btn-primary">Submit</button>
+	<button type="reset" class="btn btn-warning" value="Reset">Reset</button>
   </form>
 </div>
         </div>

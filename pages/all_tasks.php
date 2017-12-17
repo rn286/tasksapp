@@ -60,7 +60,7 @@
 <?php
 
 if ($data == false) {
-	echo '<p>You do not have any tasks created yet. Click Create task under the Main Menu to begin</p>';
+	echo '<p>You do not have any tasks created yet. Click Create Task under the Main Menu to get started</p>';
 } else {
     print utility\htmlTable::genarateTableFromMultiArray($data);
 }

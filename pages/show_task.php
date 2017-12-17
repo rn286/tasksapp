@@ -81,10 +81,18 @@
     <label for="isdone">Is this task completed? (0=No, 1=Yes):</label>
 	  <input type="number" min="0" max="1" class="form-control" id="isdone" placeholder="Is done" name="isdone" value="<?php echo $data->isdone; ?>">
         
+	<input type="hidden" name="id" value="<?php echo $data->id; ?>">
+	  <div class="btn-group">
+	<button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 	
-	<input type="hidden" name="id" value="">
-	<button type="submit" class="btn btn-default">Submit</button>
-	<button type="reset" class="btn btn-default" value="Reset">Reset</button>
+	<form action="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?> " method="post" id="form2">
+    <button type="submit" class="btn btn-danger" form="form2" value="delete">Delete</button>
+	</form>
+	 </div>
+	
+	
+	
   </form>
 </div>
         </div>
