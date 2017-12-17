@@ -11,6 +11,7 @@
 <body>
 
 <div class="container">
+  <h1>Tasks Tracker Web-based Application</h1>
   <h2>New Account Registration</h2>
   <form action="index.php?page=accounts&action=register" method="post">
    <div class="form-group">
@@ -55,6 +56,7 @@
       <label><input type="checkbox" name="remember"> Remember me</label>
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
+	<button type="reset" class="btn btn-default" value="Reset">Reset</button>
   </form>
 </div>
 
