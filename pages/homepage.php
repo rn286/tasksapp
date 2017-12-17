@@ -28,7 +28,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-light static-top">
       <div class="container">
-        <a class="navbar-brand" href="#"></a>
+        <a class="navbar-brand" >Version 1.0</a>
         <a class="btn btn-primary" href="index.php?page=accounts&action=register">New Account Registration</a>
       </div>
     </nav>
